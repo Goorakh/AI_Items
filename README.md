@@ -1,9 +1,9 @@
-# My first mod
+# AI items
 
-Description.
+A collection of items made by AI text generation. No models so far :(
 
 ## Changelog
 
 **1.0.0**
 
-* Release of my first mod.
+* First release.
