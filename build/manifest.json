@@ -1,0 +1,12 @@
+﻿{
+	"name": "AItems",
+	"authorName": "Gorakh",
+	"version_number": "1.0.0",
+	"website_url": "https://github.com/Goorakh/RoR2Mods",
+	"description": "A series of items created by AI text generation.",
+	"dependencies": [
+		"bbepis-BepInExPack-5.4.2100",
+		"RiskofThunder-HookGenPatcher-1.2.1",
+		"tristanmcpherson-R2API-4.4.1"
+	]
+}

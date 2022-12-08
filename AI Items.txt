@@ -1,0 +1,67 @@
+Items:
+[X] Core Vitality: Take less damage from elites.
+[X] Icy Wind: Boosted critical hit chance while below 50% health.
+[X] Blizzard Cloak: Reduces damage taken for a few seconds after using attacks.
+[*] Sticky Cheeks: 3 stacks of sticky tendrils spawn on each corpse.
+[X] Potent Gem: Constantly applies a slow to enemies that are within 10 meters.
+[X] Frostwyrmkin's Wail: Your chance to freeze enemies on hit is increased.
+[X] Bloody Knife: Kills also grant 20% attack speed and crit.
+[X] Scholar's Mask: Chance on activation of an interactable to heal allies.
+[*] Bone Field: Chance on activation of an interactable to damage all enemies within a large radius around you.
+[*] Sparked Hydrobow: Poison all enemies within 10 yards on hit.
+[*] Shield Wall: When attacked, raise a shield around yourself. The Shield Wall reduces damage you take by 50% for 3 seconds. Consumed on use.
+[*] Body Armor: Block a single shot.
+[*] Grave Digger: Revert back to spawn on death.
+[*] Marauder's Charger: Faster attacks while sprinting.
+[*] Euphoric Extinction: Increses armor of all allies
+[*] Chaingun Finisher: Chance on critical hit to perform a firestorm.
+[*] Sorcerer's Lament: Summon a friendly chimera, then heal yourself for 25% of their max health when they kill an enemy.
+[*] Lack of Self-Reliance: Gain Shield Charge while near zero health.
+[*] Hearted: Knock enemies backward when striking.
+[*] Virulent Plague: Apply a stacking poison effect on hit. Can stack up to 5 times.
+[*] Lucid Shard: Double the effect of consumable items. (Allow them to be consumed twice before depleting?)
+[*] Golden Mask: Create a decoy when you take damage.
+[*] Meteorite Hammer: Chance on hit to cause a meteor shower.
+[*] Tome of Quests: Grants a bonus for completing all objectives in a level. (Item, money, exp?)
+[*] Voidstone: Increases void damage and chance to cause a void explosion.
+[*] Reaper's Scythe: Killing an enemy grants you a random buff.
+[*] Gambler's Coin: Increase your chances of finding better loot.
+[X] Eternity's Edge: Increases critical chance and damage with each successful hit.
+[*] Berserker's Cape: Increases damage while taking damage.
+[*] Skullfire Rune: Explodes when you take damage, damaging nearby enemies. (Consumed on use? Cooldown?)
+[*] Doomsday Clock: Reduces the timer for each level.
+[*] Gutting Pliers: Increase damage against Elites by +20%.
+[X] Orb of Enlightenment: Increase XP gain by 30%.
+[*] Soul Shroud: Grants a bonus to all stats when your health is low.
+[X] Immortal Soulstone: Double the duration of all buffs.
+[*] Necrotic Greaves: Chance to avoid lethal damage.
+[*] Demonic Blade: Gain bonus damage when attacking an enemy from behind.
+[*] Troll's Blood: Grants increased regeneration.
+[*] Hive Mind: All allies gain increased attack speed and damage.
+[*] Void-Touched Blade: Does more damage the lower your health is.
+[*] Ancestral Totem: Grants bonus damage to all allies.
+[*] Cursed Hexer: Grants bonus damage based on your luck stat.
+[*] Valor Buckler: Activating your Equipment grants a shield to all allies in a short radius.
+[*] Silver Hammer: Increases damage to armored enemies. 
+[*] Corrupt Amulet: Chance to revive nearby fallen allies.
+[*] Eternal Key: Next interactible is free. Consumed on use.
+
+Equipment:
+[*] Gunnar's Despair: Forbids nearby enemies to attack you for 5 seconds.
+[*] Catalyzed Reserves: Deal damage equal to 20% of your maximum life every few seconds.
+[*] Evil Eye: Surround yourself with enemies and explode. Deals large area of effect damage.
+[*] Unleashed Supremacy: Gain +5 health and +1% damage for each enemy one the map with 10% health or less.
+[X] Dreamer's Chalice: Teleports you to your most recently activated shrine.
+[*] Voidsphere: Creates a void field that absorbs projectiles and converts them into a damage over time effect.
+[*] Mind Warp Conch: Activate to swap places with a nearby enemy or ally.
+
+Lunar:
+[*] The Eye of the Void: Grants you a random Status Effect on hit.
+[*] Chaos Shard: Randomly changes your abilities.
+[*] Pendant of Fortune: Increase luck by 2... <color=#FF7F7F>BUT decrease all other stats.</color>
+[*] Warping Cloak: Teleport a short distance when taking damage.
+[*] Life Leech Amulet: Gain health on hit... <color=#FF7F7F>BUT lose health over time.</color>
+
+Lunar Equipment:
+[*] Crystal of Reversal: Reverses the direction of all projectiles.
+[*] Cursed Coin: Grants a random buff or debuff on use.
