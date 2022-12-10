@@ -25,6 +25,8 @@ namespace AI_Items
         public static ItemDef FreezeOnHit { get; private set; }
         public static ItemDef BloodyKnife { get; private set; }
         public static ItemDef ScholarsMask { get; private set; }
+        public static ItemDef BodyArmor { get; private set; }
+        public static ItemDef BodyArmor_Consumed { get; private set; }
         public static ItemDef EternitysEdge { get; private set; }
         public static ItemDef OrbOfEnlightenment { get; private set; }
         public static ItemDef ImmortalSoulstone { get; private set; }
@@ -480,6 +482,117 @@ namespace AI_Items
                 _languageTokens.Add(PICKUP_TOKEN, "Chance on activation of an interactable to heal all allies.");
                 _languageTokens.Add(DESCRIPTION_TOKEN, "<style=cIsUtility>30%</style> chance on activating an interactable to heal all allies for <style=cIsHealing>5%</style> <style=cStack>(+1% per stack)</style> <style=cIsHealing>of their maximum health</style>");
                 _languageTokens.Add(LORE_TOKEN, "Marta looked up from her book and admired the mask on the shelf. It was beautiful, with its intricate carvings and delicate gold trim. She had always loved masks, and this one was no exception.\n\nShe was about to put it back when she heard a voice behind her.\n\n\"That's a Scholar's Mask.\"\n\nMarta turned around to see a man standing there, watching her.\n\n\"I know,\" she said, \"I just love masks.\"\n\n\"It's not just a mask,\" the man said. \"It's a very powerful artifact.\"\n\nMarta was intrigued. \"What does it do?\"\n\n\"It amplifies the wearer's intelligence and wisdom,\" the man said.\n\nMarta was sold. She grabbed the mask and put it on. Immediately, she could feel the power coursing through her. She felt smarter, wiser. She could feel the knowledge of centuries flowing through her mind.\n\nThe man smiled. \"Now you are a true scholar.\"");
+            }
+
+            // Body Armor
+            {
+                const string ITEM_TOKEN = "BODY_ARMOR";
+
+                const string NAME_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + NAME_TOKEN_SUFFIX;
+                const string PICKUP_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + PICKUP_TOKEN_SUFFIX;
+                const string DESCRIPTION_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + DESC_TOKEN_SUFFIX;
+                const string LORE_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + LORE_TOKEN_SUFFIX;
+
+                BodyArmor = ScriptableObject.CreateInstance<ItemDef>();
+                BodyArmor.name = $"{Main.PluginGUID}_{nameof(BodyArmor)}";
+                BodyArmor.nameToken = NAME_TOKEN;
+                BodyArmor.pickupToken = PICKUP_TOKEN;
+                BodyArmor.descriptionToken = DESCRIPTION_TOKEN;
+                BodyArmor.loreToken = LORE_TOKEN;
+
+                BodyArmor._itemTierDef = itemTier1Def;
+
+                BodyArmor.tags = new ItemTag[]
+                {
+                    ItemTag.Utility
+                };
+
+                BodyArmor.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
+                BodyArmor.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
+
+                BodyArmor.canRemove = true;
+
+                ItemDisplayRuleDict displayRules = new ItemDisplayRuleDict(null);
+                ItemAPI.Add(new CustomItem(BodyArmor, displayRules));
+
+                static void tryBlockWithBodyArmor(HealthComponent self, DamageInfo damageInfo)
+                {
+                    if (!NetworkServer.active)
+                        return;
+
+                    if (!self.alive || self.godMode)
+                        return;
+
+                    if (self.ospTimer > 0f)
+                        return;
+
+                    if (!self.body)
+                        return;
+
+                    Inventory inventory = self.body.inventory;
+                    if (!inventory)
+                        return;
+
+                    if (inventory.GetItemCount(BodyArmor.itemIndex) > 0)
+                    {
+                        inventory.RemoveItem(BodyArmor.itemIndex);
+                        inventory.GiveItem(BodyArmor_Consumed.itemIndex);
+                        CharacterMasterNotificationQueue.SendTransformNotification(self.body.master, BodyArmor.itemIndex, BodyArmor_Consumed.itemIndex, CharacterMasterNotificationQueue.TransformationType.Default);
+
+                        EffectData effectData = new EffectData
+                        {
+                            origin = damageInfo.position,
+                            rotation = Util.QuaternionSafeLookRotation((damageInfo.force != Vector3.zero) ? damageInfo.force : UnityEngine.Random.onUnitSphere)
+                        };
+                        EffectManager.SpawnEffect(HealthComponent.AssetReferences.bearEffectPrefab, effectData, true);
+
+                        damageInfo.rejected = true;
+                    }
+                }
+
+                On.RoR2.HealthComponent.TakeDamage += static (orig, self, damageInfo) =>
+                {
+                    tryBlockWithBodyArmor(self, damageInfo);
+                    orig(self, damageInfo);
+                };
+
+                _languageTokens.Add(NAME_TOKEN, "Body Armor");
+                _languageTokens.Add(PICKUP_TOKEN, "Block a single source of damage. Consumed on use.");
+                _languageTokens.Add(DESCRIPTION_TOKEN, "Blocks a single source of damage, consumed on use.");
+                _languageTokens.Add(LORE_TOKEN, "The body armor was created to help protect people from harm. It is made of a strong, durable material that can withstand a lot of damage. The armor is meant to be worn by people who are in danger or who need to be protected. It is a lifesaver for many people.\r\n\r\nThe armor is not perfect, however. There have been cases where the armor has failed to protect people from harm. In some cases, people have even been killed while wearing the armor. Despite these failures, the body armor remains a vital part of many people's lives.\r\n\r\nThank you for choosing our body armor. We hope it will help keep you safe from harm.\r\n\r\nPlease note: This armor is not intended to be worn while pregnant.\r\n\r\nEditor's note: I'm not sure what you were trying to go for with this one, but it didn't quite make the cut.");
+            }
+
+            // Body Armor (Consumed)
+            {
+                const string ITEM_TOKEN = "BODY_ARMOR_CONSUMED";
+
+                const string NAME_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + NAME_TOKEN_SUFFIX;
+                const string PICKUP_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + PICKUP_TOKEN_SUFFIX;
+                const string DESCRIPTION_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + DESC_TOKEN_SUFFIX;
+                const string LORE_TOKEN = TOKEN_PREFIX + ITEM_TOKEN + LORE_TOKEN_SUFFIX;
+
+                BodyArmor_Consumed = ScriptableObject.CreateInstance<ItemDef>();
+                BodyArmor_Consumed.name = $"{Main.PluginGUID}_{nameof(BodyArmor_Consumed)}";
+                BodyArmor_Consumed.nameToken = NAME_TOKEN;
+                BodyArmor_Consumed.pickupToken = PICKUP_TOKEN;
+                BodyArmor_Consumed.descriptionToken = DESCRIPTION_TOKEN;
+                BodyArmor_Consumed.loreToken = LORE_TOKEN;
+
+                BodyArmor_Consumed._itemTierDef = null;
+#pragma warning disable CS0618 // Type or member is obsolete
+                BodyArmor_Consumed.deprecatedTier = ItemTier.NoTier;
+#pragma warning restore CS0618 // Type or member is obsolete
+
+                BodyArmor_Consumed.canRemove = false;
+
+                BodyArmor_Consumed.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
+                BodyArmor_Consumed.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
+
+                ItemDisplayRuleDict displayRules = new ItemDisplayRuleDict(null);
+                ItemAPI.Add(new CustomItem(BodyArmor_Consumed, displayRules));
+
+                _languageTokens.Add(NAME_TOKEN, "Body Armor (Consumed)");
+                _languageTokens.Add(PICKUP_TOKEN, "Broken body armor. Does nothing.");
             }
 
             // Eternity's Edge
