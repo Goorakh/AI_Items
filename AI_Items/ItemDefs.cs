@@ -62,6 +62,12 @@ namespace AI_Items
 
                 CoreVitality._itemTierDef = itemTier2Def;
 
+                CoreVitality.tags = new ItemTag[]
+                {
+                    ItemTag.Utility,
+                    ItemTag.AIBlacklist
+                };
+
                 CoreVitality.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 CoreVitality.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
 
@@ -129,6 +135,11 @@ namespace AI_Items
                 IcyWinds.loreToken = LORE_TOKEN;
 
                 IcyWinds._itemTierDef = itemTier1Def;
+
+                IcyWinds.tags = new ItemTag[]
+                {
+                    ItemTag.Damage
+                };
 
                 IcyWinds.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 IcyWinds.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
@@ -198,6 +209,11 @@ namespace AI_Items
 
                 BlizzardCloak.canRemove = true;
 
+                BlizzardCloak.tags = new ItemTag[]
+                {
+                    ItemTag.Utility
+                };
+
                 ItemDisplayRuleDict displayRules = new ItemDisplayRuleDict(null);
                 ItemAPI.Add(new CustomItem(BlizzardCloak, displayRules));
 
@@ -248,6 +264,11 @@ namespace AI_Items
 
                 PotentGem._itemTierDef = itemTier2Def;
 
+                PotentGem.tags = new ItemTag[]
+                {
+                    ItemTag.Utility
+                };
+
                 PotentGem.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 PotentGem.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
 
@@ -291,6 +312,11 @@ namespace AI_Items
                 FreezeOnHit.loreToken = LORE_TOKEN;
 
                 FreezeOnHit._itemTierDef = itemTier3Def;
+
+                FreezeOnHit.tags = new ItemTag[]
+                {
+                    ItemTag.Damage
+                };
 
                 FreezeOnHit.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 FreezeOnHit.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
@@ -344,6 +370,12 @@ namespace AI_Items
                 BloodyKnife.loreToken = LORE_TOKEN;
 
                 BloodyKnife._itemTierDef = itemTier2Def;
+
+                BloodyKnife.tags = new ItemTag[]
+                {
+                    ItemTag.Damage,
+                    ItemTag.OnKillEffect
+                };
 
                 BloodyKnife.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 BloodyKnife.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
@@ -417,6 +449,13 @@ namespace AI_Items
                 ScholarsMask.loreToken = LORE_TOKEN;
 
                 ScholarsMask._itemTierDef = itemTier2Def;
+
+                ScholarsMask.tags = new ItemTag[]
+                {
+                    ItemTag.Healing,
+                    ItemTag.AIBlacklist,
+                    ItemTag.InteractableRelated
+                };
 
                 ScholarsMask.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 ScholarsMask.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
@@ -613,6 +652,11 @@ namespace AI_Items
 
                 EternitysEdge._itemTierDef = itemTier3Def;
 
+                EternitysEdge.tags = new ItemTag[]
+                {
+                    ItemTag.Damage
+                };
+
                 EternitysEdge.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 EternitysEdge.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
 
@@ -678,6 +722,11 @@ namespace AI_Items
 
                 OrbOfEnlightenment._itemTierDef = itemTier1Def;
 
+                OrbOfEnlightenment.tags = new ItemTag[]
+                {
+                    ItemTag.Utility
+                };
+
                 OrbOfEnlightenment.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 OrbOfEnlightenment.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
 
@@ -735,6 +784,11 @@ namespace AI_Items
                 ImmortalSoulstone.loreToken = LORE_TOKEN;
 
                 ImmortalSoulstone._itemTierDef = itemTier3Def;
+
+                ImmortalSoulstone.tags = new ItemTag[]
+                {
+                    ItemTag.Utility
+                };
 
                 ImmortalSoulstone.pickupIconSprite = Resources.Load<Sprite>("Textures/MiscIcons/texMysteryIcon");
                 ImmortalSoulstone.pickupModelPrefab = Resources.Load<GameObject>("Prefabs/PickupModels/PickupMystery");
